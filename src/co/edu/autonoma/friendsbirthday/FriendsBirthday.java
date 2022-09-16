@@ -10,8 +10,6 @@ import co.edu.autonoma.friendsbirthday.elements.FriendDAO;
 import co.edu.autonoma.friendsbirthday.elements.FriendDAOImpl;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,10 +18,8 @@ import java.util.logging.Logger;
 public class FriendsBirthday 
 {
     private Database database;
-    private String userInSession;
 
     public FriendsBirthday() {
-        userInSession = "jimezam@autonoma.edu.co";      // Valor temporal
     }
     
     public ResultSet getAllFriends()
@@ -56,12 +52,11 @@ public class FriendsBirthday
     
         try {
             dao.insert(friend);
+            return true;
         } catch (SQLException ex) {
             System.out.println("ERROR loading friend: " + ex.getMessage());
             return false;
         }
-        
-        return true;
     }
     
     public boolean deleteFriend(long id)
@@ -70,7 +65,6 @@ public class FriendsBirthday
     
         try {
             dao.delete(id);
-            
             return true;
         } catch (SQLException ex) {
             System.out.println("ERROR deleting friend: " + ex.getMessage());
@@ -84,12 +78,11 @@ public class FriendsBirthday
     
         try {
             dao.update(friend);
+            return true;
         } catch (SQLException ex) {
             System.out.println("ERROR updating friend: " + ex.getMessage());
             return false;
-        }
-        
-        return true;
+        }        
     }
     
     public void close()

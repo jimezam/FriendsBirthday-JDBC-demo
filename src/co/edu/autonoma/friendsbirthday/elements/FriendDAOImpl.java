@@ -5,8 +5,6 @@
 package co.edu.autonoma.friendsbirthday.elements;
 
 import co.edu.autonoma.friendsbirthday.data.Database;
-import java.sql.Date;
-import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +15,7 @@ import java.sql.ResultSet;
  */
 public class FriendDAOImpl implements FriendDAO {
 
-    private Database database;
+    private final Database database;
     
     public FriendDAOImpl(Database database) {
         this.database = database;
@@ -103,5 +101,4 @@ public class FriendDAOImpl implements FriendDAO {
         
         return statement.executeQuery();
     }
-    
 }

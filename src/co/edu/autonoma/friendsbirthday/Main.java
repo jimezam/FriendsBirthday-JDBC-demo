@@ -12,8 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -50,6 +48,8 @@ public class Main
         //  [mysqld]
         //  bind-address="0.0.0.0"
         
+        // IMPORTANTE: actualizar los datos de conexión a la base de datos
+        
         Database database = new Database("com.mysql.cj.jdbc.Driver",
                                          "jdbc:mysql://192.168.1.69/birthdayfriends",
                                          "birthday_user",
@@ -76,5 +76,4 @@ public class Main
         frame.setTitle("Birthday Friends");
         frame.setVisible(true);
     }
-    
 }
